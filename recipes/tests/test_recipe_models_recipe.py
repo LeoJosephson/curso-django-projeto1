@@ -14,7 +14,7 @@ class RecipeModelTest(RecipeTestBase):
             author=self.make_author(username='newuser'),
             title='Recipe Title',
             description='Recipe Description',
-            slug='recipe-slug',
+            slug='recipe-slug-test',
             preparation_time=10,
             preparation_time_unit='Minutos',
             servings=5,
@@ -30,6 +30,7 @@ class RecipeModelTest(RecipeTestBase):
             ('description', 165),
             ('preparation_time_unit', 65),
             ('servings_unit', 65),])
+
     def test_recipe_fields_max_length(self, field, max_length):
         setattr(self.recipe, field, 'A'* (max_length+1))
         with self.assertRaises(ValidationError):
